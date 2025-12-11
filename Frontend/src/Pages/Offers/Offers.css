@@ -1,0 +1,114 @@
+/* MAIN CONTAINER */
+.offers-container {
+  min-height: 100vh;
+  background: #f8f9fa;
+  padding: 40px 20px;
+}
+
+/* TITLE */
+.offers-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 35px;
+  color: #ff6f61;
+  font-weight: 700;
+}
+
+/* GRID LAYOUT */
+.offers-wrapper {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  gap: 22px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* OFFER CARD */
+.offer-card {
+  background: #fff;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.offer-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0px 8px 20px rgba(0,0,0,0.12);
+}
+
+.offer-card h2 {
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.offer-card p {
+  font-size: 15px;
+  color: #666;
+  margin-bottom: 18px;
+}
+
+.offer-tag {
+  display: inline-block;
+  padding: 8px 14px;
+  background: #ffe7e4;
+  color: #ff6f61;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 8px;
+}
+
+/* ------------------------------- */
+/* 🔥 RESPONSIVE MEDIA QUERIES 🔥 */
+/* ------------------------------- */
+
+/* Tablets (Medium Screens) */
+@media (max-width: 768px) {
+  .offers-title {
+    font-size: 26px;
+  }
+
+  .offer-card {
+    padding: 20px;
+  }
+
+  .offer-card h2 {
+    font-size: 20px;
+  }
+}
+
+/* Mobile (Small Screens) */
+@media (max-width: 480px) {
+  .offers-container {
+    padding: 25px 15px;
+  }
+
+  .offers-title {
+    font-size: 22px;
+    margin-bottom: 25px;
+  }
+
+  .offers-wrapper {
+    gap: 15px;
+  }
+
+  .offer-card {
+    padding: 18px;
+    border-radius: 12px;
+  }
+
+  .offer-card h2 {
+    font-size: 18px;
+  }
+
+  .offer-card p {
+    font-size: 14px;
+  }
+
+  .offer-tag {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+}
