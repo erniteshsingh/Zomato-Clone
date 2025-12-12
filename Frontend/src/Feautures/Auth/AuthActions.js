@@ -1,13 +1,9 @@
 // src/Features/Auth/authAction.js
 import axios from "axios";
 import { setUser } from "./AuthSlice";
-
 // Always send cookies to backend
 axios.defaults.withCredentials = true;
 
-// ----------------------------
-// REGISTER USER
-// ----------------------------
 export const registerUser = (formData) => async (dispatch) => {
   try {
     const res = await axios.post(

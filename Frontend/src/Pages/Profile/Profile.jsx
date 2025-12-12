@@ -1,25 +1,41 @@
 import React from "react";
 import "./Profile.css";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import { CgProfile } from "react-icons/cg";
+import axios from "axios";
+import { logout } from "../../Feautures/Auth/AuthSlice";
+import { useNavigate } from "react-router-dom";
 
 export default function Profile() {
   const { user } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await axios.post("http://localhost:3000/api/auth/logout", {
+        withCredentials: true,
+      });
+      dispatch(logout()); 
+      navigate("/login");
+    } catch (error) {
+      console.log("Logout Error:", error);
+    }
+  };
 
   return (
     <div className="profile-container">
       <div className="profile-card">
-        {/* USER AVATAR */}
+       
         <div className="avatar">
           <CgProfile size={110} />
         </div>
 
-        {/* USER INFO */}
+        
         <h1>{user?.name}</h1>
         <p className="email">{user?.email}</p>
 
-        {/* USER STATS */}
+        
         <div className="stats">
           <div>
             <h2>12</h2>
@@ -34,14 +50,16 @@ export default function Profile() {
             <p>Rating</p>
           </div>
         </div>
-
-        {/* BUTTONS */}
         <div className="profile-actions">
-          <Link to="/edit-profile">
-            <button className="edit-btn">Edit Profile</button>
-          </Link>
-
-          <button className="logout-btn">Logout</button>
+          <button
+            onClick={() => navigate("/edit-profile")}
+            className="edit-btn"
+          >
+            Edit Profile
+          </button>
+          <button onClick={handleLogout} className="logout-btn">
+            Logout
+          </button>
         </div>
       </div>
     </div>
