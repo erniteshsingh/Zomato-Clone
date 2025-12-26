@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 
 const registerControllers = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { username, email, password } = req.body;
 
     const emailExist = await userModel.findOne({ email });
     if (emailExist) {
@@ -17,7 +17,7 @@ const registerControllers = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const newUser = await userModel.create({
-      name,
+      username,
       email,
       password: hashedPassword,
     });
@@ -39,13 +39,13 @@ const registerControllers = async (req, res) => {
       message: "User registered successfully",
       user: {
         id: newUser._id,
-        name: newUser.name,
+        username: newUser.username,
         email: newUser.email,
       },
     });
   } catch (error) {
     console.error("Register Error:", error);
-    return res.status(500).json({
+    return res.status(400).json({
       success: false,
       message: "Server error",
       error: error.message,
@@ -82,7 +82,7 @@ const loginController = async (req, res) => {
       message: "Login successful",
       user: {
         id: user._id,
-        name: user.name,
+        username: user.username,
         email: user.email,
       },
     });

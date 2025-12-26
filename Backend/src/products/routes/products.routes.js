@@ -25,10 +25,10 @@ router.post(
 router.delete("/deleteProduct/:id", adminMiddlware, deleteProduct);
 
 //get single product
-router.get("/singleproduct/:id", adminMiddlware, getSingleProduct);
+router.get("/singleproduct/:id", getSingleProduct);
 
 // get all products
-router.get("/getAllProducts", adminMiddlware, getAllProducts);
+router.get("/getAllProducts", getAllProducts);
 
 // update product
 

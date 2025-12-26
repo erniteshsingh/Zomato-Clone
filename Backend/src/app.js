@@ -3,7 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 
-const authRouter = require("./users/routers/auth.routes");
+const authRouter = require("./users/routes/auth.routes");
 const adminRoutes = require("./admins/routes/admin.routes");
 const productsRoutes = require("./products/routes/products.routes");
 
@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:5173", // correct
+    origin: "http://localhost:5173",
     credentials: true,
   })
 );
