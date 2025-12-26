@@ -1,6 +1,7 @@
 import React from "react";
 import "./Home.css";
 import ProductCard from "../../Components/ProductCard/ProductCard";
+import LandingPage from "../../Components/Landingpage/Landingpage";
 
 export default function Home() {
   const products = [
@@ -61,18 +62,21 @@ export default function Home() {
   ];
 
   return (
-    <div className="home-container">
-      <h1 className="home-title">🔥 Popular Dishes</h1>
-      <div className="home-grid">
-        {products.map((item, index) => (
-          <ProductCard
-            key={index}
-            img={item.img}
-            name={item.name}
-            desc={item.desc}
-            price={item.price}
-          />
-        ))}
+    <div>
+      <LandingPage />
+      <div className="home-container">
+        <h1 className="home-title">🔥 Popular Dishes</h1>
+        <div className="home-grid">
+          {products.map((item, index) => (
+            <ProductCard
+              key={index}
+              img={item.img}
+              name={item.name}
+              desc={item.desc}
+              price={item.price}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

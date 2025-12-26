@@ -34,7 +34,7 @@ export default function Login() {
     setTimeout(() => {
       setlogin({ name: "", email: "", password: "" });
       navigate("/");
-    }, 2000);
+    }, 1000);
   };
 
   return (

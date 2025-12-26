@@ -5,6 +5,7 @@ import { setUser } from "./AuthSlice";
 axios.defaults.withCredentials = true;
 
 export const registerUser = (formData) => async (dispatch) => {
+  console.log("Entered Inside Hello", formData);
   try {
     const res = await axios.post(
       "http://localhost:3000/api/auth/register",
@@ -19,6 +20,7 @@ export const registerUser = (formData) => async (dispatch) => {
     dispatch(setUser(res.data.user));
 
     return {
+      status: res.status,
       success: true,
       user: res.data.user,
       message: res.data.message,

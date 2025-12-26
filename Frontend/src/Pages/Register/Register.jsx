@@ -14,7 +14,7 @@ export default function Register() {
   const dispatch = useDispatch();
 
   const [formData, setFormData] = useState({
-    name: "",
+    username: "",
     email: "",
     password: "",
   });
@@ -29,26 +29,21 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const res = await dispatch(registerUser(formData));
+    try {
+      const res = await dispatch(registerUser(formData));
 
-    if (!res.success) {
-      toast.error(res.message, {
+      toast.success(res.message, {
         position: "top-center",
       });
+
       setTimeout(() => {
-        setFormData({ name: "", email: "", password: "" });
         navigate("/login");
       }, 2000);
-      return;
+    } catch (error) {
+      toast.error(error.message || "Registration failed", {
+        position: "top-center",
+      });
     }
-
-    toast.success(res.message, {
-      position: "top-center",
-    });
-    setFormData({ name: "", email: "", password: "" });
-    setTimeout(() => {
-      navigate("/login");
-    }, 2000);
   };
 
   return (
@@ -62,8 +57,8 @@ export default function Register() {
             <label>Name</label>
             <input
               type="text"
-              name="name"
-              value={formData.name} // <-- Controlled input
+              name="username"
+              value={formData.username}
               onChange={handleChange}
               placeholder="Enter your full name"
               required
@@ -75,7 +70,7 @@ export default function Register() {
             <input
               type="email"
               name="email"
-              value={formData.email} // <-- Controlled input
+              value={formData.email}
               onChange={handleChange}
               placeholder="Enter your email"
               required

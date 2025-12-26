@@ -9,6 +9,7 @@ import axios from "axios";
 import Navbar from "./components/Navbar/Navbar";
 import AppRouter from "./Routes/Router";
 import Footer from "./components/Footer/Footer";
+import LandingPage from "./Components/Landingpage/Landingpage";
 import { setUser } from "./Feautures/Auth/AuthSlice";
 
 const App = () => {
@@ -42,7 +43,10 @@ const App = () => {
       />
 
       <Navbar />
-      <AppRouter />
+
+      <main className="main-content">
+        <AppRouter />
+      </main>
       <Footer />
     </div>
   );

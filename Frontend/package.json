@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@reduxjs/toolkit": "^2.11.1",
+    "@reduxjs/toolkit": "^2.11.2",
     "axios": "^1.13.2",
     "cors": "^2.8.5",
     "nodemon": "^3.1.11",

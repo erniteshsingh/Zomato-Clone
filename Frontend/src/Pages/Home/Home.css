@@ -1,62 +1,61 @@
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/* CONTAINER */
+/* Page Container */
 .home-container {
-  padding: 90px 20px 50px; 
-  background: #fafafa;
+  padding: 40px 60px;
+  background: #f8f8f8;
   min-height: 100vh;
-  /* remove margin — avoid pushing content off-screen on small devices */
+  font-family: "Segoe UI", sans-serif;
 }
 
-/* TITLE */
+/* Title */
 .home-title {
-  text-align: center;
-  font-size: 24px; /* mobile-first smaller size */
-  color: #ff6b5c;
+  font-size: 32px;
   font-weight: 700;
-  margin-bottom: 24px;
-  letter-spacing: 1px;
+  color: #1c1c1c;
+  margin-bottom: 30px;
+  position: relative;
 }
 
-/* PRODUCT GRID */
+.home-title::after {
+  content: "";
+  width: 80px;
+  height: 4px;
+  background: #e23744;
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  border-radius: 4px;
+}
+
+/* Grid Layout */
 .home-grid {
-  max-width: 1280px;
-  margin: 0 auto;
   display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  padding: 0 12px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 28px;
 }
 
-/* Larger screens */
-@media (min-width: 600px) {
-  .home-title {
-    font-size: 28px;
-    margin-bottom: 32px;
-  }
+/* Optional: smooth page entry */
+.home-grid {
+  animation: fadeUp 0.6s ease;
+}
 
-  .home-grid {
-    gap: 24px;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@media (min-width: 992px) {
+/* Responsive */
+@media (max-width: 768px) {
   .home-container {
-    padding: 100px 40px 70px;
+    padding: 30px 20px;
   }
 
   .home-title {
-    font-size: 34px;
-  }
-
-  .home-grid {
-    gap: 28px;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    font-size: 26px;
   }
 }
