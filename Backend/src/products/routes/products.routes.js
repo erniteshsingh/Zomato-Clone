@@ -28,6 +28,7 @@ router.delete("/deleteProduct/:id", adminMiddlware, deleteProduct);
 router.get("/singleproduct/:id", getSingleProduct);
 
 // get all products
+
 router.get("/getAllProducts", getAllProducts);
 
 // update product
