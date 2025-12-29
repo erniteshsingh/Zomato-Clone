@@ -5,9 +5,7 @@ const createProduct = async (req, res) => {
   try {
     const { name, price, description, category, brand, rating } = req.body;
 
-    const imageUrl = req.file
-      ? `http://localhost:5000/uploads/${req.file.filename}`
-      : null;
+    const imageName = req.file.filename;
 
     const product = await Product.create({
       name,
@@ -16,7 +14,7 @@ const createProduct = async (req, res) => {
       category,
       brand,
       rating,
-      image: imageUrl,
+      image: imageName,
     });
 
     res.status(201).json({

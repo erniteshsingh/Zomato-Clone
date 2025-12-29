@@ -1,4 +1,5 @@
 require("dotenv").config();
+const path = require("path");
 const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
@@ -22,7 +23,11 @@ app.use(
 );
 
 // Static files
-app.use("/uploads", express.static("uploads"));
+// app.use("/products/uploads", express.static("uploads"));
+app.use(
+  "/products/uploads",
+  express.static(path.join(process.cwd(), "src/products/uploads"))
+);
 
 // Routes
 app.use("/api/auth", authRouter);

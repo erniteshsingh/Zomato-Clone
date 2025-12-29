@@ -71,7 +71,7 @@
   color: #ffffff;
 }
 
-/* Mobile Responsive */
+
 @media (max-width: 480px) {
   .product-card {
     width: 100%;

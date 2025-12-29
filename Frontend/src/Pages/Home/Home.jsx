@@ -19,7 +19,7 @@ export default function Home() {
       <LandingPage />
 
       <div className="home-container">
-        <h1 className="home-title">🔥 Popular Dishes</h1>
+        <h1 className="home-title"> Popular Dishes</h1>
 
         {loading && <p>Loading products...</p>}
         {error && <p>{error}</p>}
